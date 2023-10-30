@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* Boyuta çerçeveyi dahil eder */
+    box-sizing: border-box; /* Size includes frame */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -12,29 +12,29 @@ body {
 .wrapper {
     background-color: #fff;
     width: 80vmin;
-    position: absolute; /* mutlak konumu belirler yani sayfa kaydırılsa bile konum değişmez. */
-    transform: translate(-50%, -50%); /* sayfa ortası */
-    top: 50%; /* dikey orta */
-    left: 50%; /* yatay orta */
+    position: absolute; /* It determines the absolute position, that is, the position does not change even if the page is scrolled. */
+    transform: translate(-50%, -50%); /* middle of page */
+    top: 50%; /* vertical middle */
+    left: 50%; /* horizontal middle */
     padding: 40px 20px;
     border-radius: 8px;
 }
 
 label {
-    display: block; /* öğeleri block yapar yani alt alta sıralar */
+    display: block; /* blocks the items, that is, sorts them one under the other */
 }
 
 span {
-    position: relative; /* göreceli konum */
+    position: relative;
     font-size: 22px;
     bottom: -1px;
 }
 
 .opt-wrapper {
-    display: flex; /* öğeleri yatayda sırala */
-    justify-content: space-between; /* öğeler arası eşit uzaklık */
+    display: flex; /* sort items horizontally */
+    justify-content: space-between; /* equal distance between elements */
     margin-bottom: 20px;
-    gap: 10px; /* öğeler arası boşluk */
+    gap: 10px; /* space between elements */
 }
 
 button {
@@ -43,22 +43,22 @@ button {
     border-radius: 5px;
     padding: 20px;
     color: #fff;
-    cursor: pointer; /* fare ile üzerine gelindiğinde farenin şeklini değiştirir */
+    cursor: pointer; /* Changes the shape of the mouse when hovering over it */
 }
 
 input[type="color"] {
-    /* alttaki 3 appearance komutu varsayılan tarayıcı özelliklerini sıfırlar */
+    /* The bottom 3 appearance commands reset default browser features */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: transparent; /* şeffaf arka plan */
+    background-color: transparent;
     width: 70px;
     height: 60px;
     border: none;
-    cursor: pointer; /* fare ile üzerine gelindiğinde farenin şeklini değiştirir */
+    cursor: pointer; /* Changes the shape of the mouse when hovering over it */
 }
 
-/* tarayıcıya özel olarak yapılan ayarlar */
+/* browser-specific settings */
 input[type="color"]::-webkit-color-swatch {
     border-radius: 8px;
     border: none;
@@ -82,8 +82,8 @@ input[type="color"]::-moz-color-swatch {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Yatayda merkeze hizalama */
-    align-items: center; /* Dikeyde merkeze hizalama */
+    justify-content: center; /* Horizontal center alignment */
+    align-items: center; /* Vertical center alignment */
   }
 
 @media only screen and (max-width: 768px) {
