@@ -27,7 +27,7 @@ let deviceType = "";
 let draw = false;
 let erase = false;
 
-/* kullanıcı dokunmatik ekrana sahip mi değil mi */
+/* does the user have a touch screen or not */
 const isTouchDevice = () => {
     try {
         document.createEvent("TouchEvent");
@@ -39,24 +39,24 @@ const isTouchDevice = () => {
     }
 };
 
-isTouchDevice(); /* sayfa yüklenirken kullanıcının cihazını belirler */
+isTouchDevice(); /* determines the user's device when loading the page */
 
-/* Create Grid'e tıklandığında yapılacaklar */
+/* What to do when clicking Create Grid */
 gridButton.addEventListener("click", () => {
-    container.innerHTML = ""; /* var olan ızgarayı temizle */
+    container.innerHTML = ""; /* clear existing grid */
     let count = 0;
     for (let i = 0; i < gridHeight.value; i++) {
         count += 1;
-        let div = document.createElement("div"); /* her satır için bir div elementi oluştur */
-        div.classList.add("gridRow"); /* div'e gridRow classını ekle */
+        let div = document.createElement("div"); /* create a div element for each row */
+        div.classList.add("gridRow"); /* Add div grid Row class */
 
         for (let j = 0; j < gridWidth.value; j++) {
             count += 1;
-            let col = document.createElement("div"); /* her sütun için bir div elementi oluşturulur */
-            col.classList.add("gridCol"); /* div'e gridCol classını ekler */
-            col.setAttribute("id", `gridCol${count}`); /* her sütuna bir id ata, örneğin ilk sütun gridCol1 */
+            let col = document.createElement("div"); /* A div element is created for each column */
+            col.classList.add("gridCol"); /* Adds gridCol class to div */
+            col.setAttribute("id", `gridCol${count}`); /* assign an id to each column, for example the first column is gridCol1 */
 
-            /* ekrana tıklandığında yada dokunulduğunda bir olay dinleyicisi */
+            /* An event listener when the screen is clicked or tapped */
             col.addEventListener(events[deviceType].down, () => {
                 draw = true;
                 if (erase) {
@@ -66,30 +66,30 @@ gridButton.addEventListener("click", () => {
                 }
             });
 
-            /* ekranda hareket ederken bir olay dinleycisi */
+            /* an event listener as it moves around the screen */
             col.addEventListener(events[deviceType].move, (e) => {
-                let elementId = document.elementFromPoint( /* hareket ettirilen noktanın id'sini al */
+                let elementId = document.elementFromPoint( /* get the id of the moved point */
                     !isTouchDevice() ? e.clientX : e.touches[0].clientX,
                     !isTouchDevice() ? e.clientY : e.touches[0].clientY,
                 ).id;
-                checker(elementId); /* elementi checker function'ına gönder */
+                checker(elementId); /* send element to checker function */
             });
 
-            /* dokunmayı bırakma olayı dinleyicisi */
+            /* touch release event listener */
             col.addEventListener(events[deviceType].up, () => {
                 draw = false;
             });
 
-            div.appendChild(col); /* sütunları satırların içine ekler */
+            div.appendChild(col); /* inserts columns inside rows */
 
         }
 
-        container.appendChild(div); /* satırları container'a ekler */
+        container.appendChild(div); /* adds rows to container */
 
     }
 });
 
-/* boyama yada silme işlemi */
+/* painting or erasing */
 function checker(elementId) {
     let gridColumns = document.querySelectorAll(".gridCol");
     gridColumns.forEach((element) => {
@@ -103,22 +103,22 @@ function checker(elementId) {
     });
 }
 
-/* Clear Grid de ızgarayı boşalt */
+/* Empty the grid in Clear Grid */
 clearGridButton.addEventListener("click", () => {
     container.innerHTML = "";
 });
 
-/* Silgiyi aktif et */
+/* Activate eraser */
 eraseBtn.addEventListener("click", () => {
     erase = true;
 });
 
-/* Silgiyi pasif et */
+/* Disable eraser */
 paintBtn.addEventListener("click", () => {
     erase = false;
 });
 
-/* Gridlerdeki sayının görünümünü güncelle. Eğer 9 dan küçük ise başına bir 0 ekle */
+/* Update the appearance of the number in grids. If it is less than 9, add a leading 0 */
 gridWidth.addEventListener("input", () => {
     widthValue.innerHTML = gridWidth.value < 9 ? `0${gridWidth.value}` : gridWidth.value;
 });
@@ -127,7 +127,7 @@ gridHeight.addEventListener("input", () => {
     heightValue.innerHTML = gridHeight.value < 9 ? `0${gridHeight.value}` : gridHeight.value;
 });
 
-/* program yüklenirken değerleri sıfırla */
+/* reset values when loading program */
 window.onload = () => {
     gridHeight.value = 0;
     gridWidth.value = 0;
