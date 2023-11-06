@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/657de39a82.js" crossorigin="anonymous"></script>
+  <title>Translator</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <ul class="controls">
+        <li class="row from">
+          <div class="icons">
+            <i id="from" class="fas fa-volume-up"></i>
+            <div class="tooltip" id="fromTooltip">
+              <i id="from" class="fas fa-copy"></i>
+              <span class="tooltiptext">Copy</span>
+            </div>
+          </div>
+          <select></select>
+        </li>
+        <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+        <li class="row to">
+          <select></select>
+          <div class="icons">
+            <i id="to" class="fas fa-volume-up"></i>
+            <div class="tooltip" id="toTooltip">
+              <i id="to" class="fas fa-copy"></i>
+              <span class="tooltiptext">Copy</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="text-input">
+        <textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea>
+        <textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea>
+      </div>
+    </div>
+  </div>
+  <script src="countries.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
