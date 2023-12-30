@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="style.css">
+
+    <title>Kanban</title>
+</head>
+<body>
+
+        <div id="popup-wrapper">
+            <div id="popup-content">
+                <table>
+                    <tr>
+                        <td>Board Coulmn:</td>
+                        <td>
+                            <div class="dropdown" id="boardDropdown">
+                                <div class="select">
+                                    <span class="selected" id="boardSelected">Backlog</span>
+                                    <div class="caret"></div>
+                                </div>
+                                <ul class="menu">
+                                    <li class="active">Backlog</li>
+                                    <li>To Do</li>
+                                    <li>In Progress</li>
+                                    <li>Test</li>
+                                    <li>UAT</li>
+                                    <li>Done</li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Item Type:</td>
+                        <td>
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span class="selected" id="typeSelected">Customization</span>
+                                    <div class="caret"></div>
+                                </div>
+                                <ul class="menu">
+                                    <li class="active">Customization</li>
+                                    <li>Software Development</li>
+                                    <li>Documentation</li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Definition:</td>
+                        <td><textarea id="definitionInput" cols="30" rows="20" style="height: 100px;"></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td>Date:</td>
+                        <td><input type="date" id="dateInput"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Comment:</td>
+                        <td><textarea id="commentInput" cols="30" rows="10" style="height: 100px;"></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button id="addItemBtn">Add Item</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    
+
+    <h2>Kanban</h2>
+
+    <div class="container">
+
+        <div class="box-coulmn" id="Backlog">
+            <div class="box-header">
+                <h5>Backlog <span class="num">8</span>
+                </h5>
+                <li><i class="fa-solid fa-plus" id="add-backlog"></i></li>
+            </div>
+
+            <!-- <div class="box">
+                <span class="tag" id="red">Youtube</span>
+                <p>This is the title of the card for the thing that needs to be done.</p>
+                <div class="box-footer">
+                    <div class="date">
+                        <li>
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </li>
+                        <span>8 May</span>
+                    </div>
+
+                    <li class="comment">
+                        <i class="fa-solid fa-message"></i>14
+                    </li>
+                </div>
+            </div>
+        </div>-->
+
+        </div>
+
+        <div class="box-coulmn" id="In Progress">
+            <div class="box-header">
+                <h5>In Progress <span class="num">4</span>
+                </h5>
+                <li><i class="fa-solid fa-plus" id="add-inprogress"></i></li>
+            </div>
+        </div>
+
+        <div class="box-coulmn" id="Test">
+            <div class="box-header">
+                <h5>Test <span class="num">2</span>
+                </h5>
+                <li><i class="fa-solid fa-plus" id="add-test"></i></li>
+            </div>
+        </div>
+
+        <div class="box-coulmn" id="UAT">
+            <div class="box-header">
+                <h5>UAT <span class="num">2</span>
+                </h5>
+                <li><i class="fa-solid fa-plus" id="add-uat"></i></li>
+            </div>
+        </div>
+
+        <div class="box-coulmn" id="Done">
+            <div class="box-header">
+                <h5>Done <span class="num">2</span>
+                </h5>
+                <li><i class="fa-solid fa-plus" id="add-done"></i></li>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
